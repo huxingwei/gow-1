@@ -1,8 +1,8 @@
 **GOW RESTful API**
-
-
-
-
+1
+2
+3
+4
 # API Overview
 
 Welcome to the GOW API！ You can use this API to obtain market data, perform transactions, as well as manage your account.
@@ -461,12 +461,12 @@ N/A at this time
 
 **Request Method**：
 
-| Param Name         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
 |size| 大小  | query | true |ref  |    |
-|symbol| 交易对  | query | true |string  |    |
+|symbol| trading pair  | query | true |string  |    |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -491,51 +491,51 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |array  | ExchangeTrade   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |array  | ExchangeTrade   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
 **ExchangeTrade**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|amount | 数量   |number  |    |
-|buyId | 买方ID   |string  |    |
-|buyOrderId | 买方订单号   |string  |    |
-|buyTurnover | 买成交额   |number  |    |
-|direction | 方向,可用值:BUY,SELL   |string  |    |
-|id | 交易ID   |string  |    |
-|price | 价格   |number  |    |
-|sellId | 卖方ID   |string  |    |
-|sellOrderId | 卖方订单号   |string  |    |
-|sellTurnover | 卖成交额   |number  |    |
-|symbol | 交易对   |string  |    |
-|time | 时间戳   |integer(int64)  |    |
+|amount | amount   |number  |    |
+|buyId | buy ID   |string  |    |
+|buyOrderId | buy order ID   |string  |    |
+|buyTurnover | buy turnover   |number  |    |
+|direction | direction,value:BUY,SELL   |string  |    |
+|id | trade ID   |string  |    |
+|price | price   |number  |    |
+|sellId | sell ID   |string  |    |
+|sellOrderId | sell order ID   |string  |    |
+|sellTurnover | sell turnover   |number  |    |
+|symbol | trading pair   |string  |    |
+|time | timestamp   |integer(int64)  |    |
 
 
 
-## 行情概览
+## Market Data Overview
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/market/overview`
+**Interface URL**:`/openapi/v1/market/overview`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -545,12 +545,12 @@ N/A at this time
 
 
 
-**请求参数**：
-暂无
+**Request Param**：
+N/A at this time
 
 
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -579,56 +579,56 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |array  | CoinThumb   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |array  | CoinThumb   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
 **CoinThumb**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|baseSymbol | 基础币种   |string  |    |
-|baseUsdRate | 基础币种对usd汇率   |number  |    |
-|change | 涨跌幅   |number  |    |
-|chg | 涨跌幅百分比   |number  |    |
-|close | 收盘价   |number  |    |
-|coinSymbol | 交易币种   |string  |    |
-|high | 最高价   |number  |    |
-|lastDayClose | 昨日收盘价   |number  |    |
-|low | 最低价   |number  |    |
-|open | 开盘价   |number  |    |
-|symbol | 交易对   |string  |    |
-|turnover | 交易额   |number  |    |
-|usdRate | 交易币对usd汇率   |number  |    |
-|volume | 交易量   |number  |    |
+|baseSymbol | base coin symbol   |string  |    |
+|baseUsdRate | base coin USD exchange rate   |number  |    |
+|change | change   |number  |    |
+|chg | change percentage   |number  |    |
+|close | close price   |number  |    |
+|coinSymbol | trading pair   |string  |    |
+|high | high price   |number  |    |
+|lastDayClose | previous day close price   |number  |    |
+|low | low price   |number  |    |
+|open | open price   |number  |    |
+|symbol | trading pair   |string  |    |
+|turnover | turnover   |number  |    |
+|usdRate | traded coin USD exchange rate   |number  |    |
+|volume | trade volume   |number  |    |
 
 
 
 # order
 
 
-## 撤销订单
+## Cancel Order
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/order/cancel`
+**Interface URL**:`/openapi/v1/order/cancel`
 
 
-**请求方式**：`POST`
+**Request Method**：`POST`
 
 
 **consumes**:`["application/json"]`
@@ -637,7 +637,7 @@ N/A at this time
 **produces**:`["*/*","application/json"]`
 
 
-**请求示例**：
+**Request Example**：
 ```json
 {
 	"orderId": "",
@@ -648,15 +648,15 @@ N/A at this time
 ```
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|orderId| 订单ID  | body | true |string  |    |
+|orderId| order ID  | body | true |string  |    |
 
 
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -666,29 +666,29 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |object  |    |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |object  |    |
+|description| return description  |string  |    |
 
 
 
 
 
-## 查询当前委托
+## Request Current Orders
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/order/current`
+**Interface URL**:`/openapi/v1/order/current`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -698,15 +698,15 @@ N/A at this time
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|pageNo| 页码  | query | false |integer  |    |
-|pageSize| 每页条数  | query | false |integer  |    |
-|symbol| 交易对  | query | false |string  |    |
+|pageNo| page number  | query | false |integer  |    |
+|pageSize| page size  | query | false |integer  |    |
+|symbol| trading pair  | query | false |string  |    |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -748,25 +748,25 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |Page«ExchangeOrder»  | Page«ExchangeOrder»   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |Page«ExchangeOrder»  | Page«ExchangeOrder»   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
 **Page«ExchangeOrder»**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
 |content |    |array  | ExchangeOrder   |
 |first |    |boolean  |    |
@@ -780,46 +780,46 @@ N/A at this time
 
 **ExchangeOrder**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|amount | 数量   |number  |    |
-|baseSymbol | 结算币单位   |string  |    |
-|canceledTime | 取消时间戳   |integer(int64)  |    |
-|coinSymbol | 币单位   |string  |    |
+|amount | amount   |number  |    |
+|baseSymbol | base coin symbold   |string  |    |
+|canceledTime | cancel timestamp   |integer(int64)  |    |
+|coinSymbol | coin symbol   |string  |    |
 |completed |    |boolean  |    |
-|completedTime | 交易完成时间戳   |integer(int64)  |    |
-|direction | 订单方向,可用值:BUY,SELL   |string  |    |
+|completedTime | complete timestamp   |integer(int64)  |    |
+|direction | direction,value:BUY,SELL   |string  |    |
 |email |    |string  |    |
 |mobile |    |string  |    |
-|orderId | 订单ID   |string  |    |
-|price | 挂单价格   |number  |    |
-|status | 订单状态,可用值:'TRADING': '交易中', 'COMPLETED': '已完成', 'CANCELED': '已撤销', 'PARTFILLED': '部分成交', 'PARTFILL_CANCELD': '部分成交撤销', 'OVERTIMED': '已超时'   |string  |    |
-|symbol | 交易对   |string  |    |
-|time | 挂单时间戳   |integer(int64)  |    |
-|tradedAmount | 成交量   |number  |    |
-|turnover | 成交额   |number  |    |
-|type | 订单类型,可用值:MARKET_PRICE,LIMIT_PRICE   |string  |    |
-|useDiscount | 是否使用折扣(0不使用1使用)   |string  |    |
-|userId | 用户ID   |string  |    |
+|orderId | order ID   |string  |    |
+|price | order price   |number  |    |
+|status | order status,value:'TRADING': 'trading', 'COMPLETED': 'completed', 'CANCELED': 'canceled', 'PARTFILLED': 'partfilled', 'PARTFILL_CANCELD': 'partfilled canceled', 'OVERTIMED': 'overtimed'   |string  |    |
+|symbol | trading pair   |string  |    |
+|time | order timestamp   |integer(int64)  |    |
+|tradedAmount | trade volume   |number  |    |
+|turnover | turnover  |number  |    |
+|type | order type,value:MARKET_PRICE,LIMIT_PRICE   |string  |    |
+|useDiscount | discount used (0 No, 1Yes)   |string  |    |
+|userId | user ID   |string  |    |
 
 **Sort**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
 
 
 
 
-## 查询历史委托
+## Request Historic Orders
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/order/history`
+**Interface URL**:`/openapi/v1/order/history`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -829,15 +829,15 @@ N/A at this time
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|pageNo| 页码  | query | false |integer  |    |
-|pageSize| 每页条数  | query | false |integer  |    |
-|symbol| 交易对  | query | false |string  |    |
+|pageNo| page number  | query | false |integer  |    |
+|pageSize| page size  | query | false |integer  |    |
+|symbol| trading pair  | query | false |string  |    |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -879,25 +879,25 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |Page«ExchangeOrder»  | Page«ExchangeOrder»   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |Page«ExchangeOrder»  | Page«ExchangeOrder»   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
 **Page«ExchangeOrder»**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
 |content |    |array  | ExchangeOrder   |
 |first |    |boolean  |    |
@@ -911,47 +911,47 @@ N/A at this time
 
 **ExchangeOrder**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|amount | 数量   |number  |    |
-|baseSymbol | 结算币单位   |string  |    |
-|canceledTime | 取消时间戳   |integer(int64)  |    |
-|coinSymbol | 币单位   |string  |    |
+|amount | amount   |number  |    |
+|baseSymbol | base coin symbol   |string  |    |
+|canceledTime | cancel timestamp   |integer(int64)  |    |
+|coinSymbol | coin symbol   |string  |    |
 |completed |    |boolean  |    |
-|completedTime | 交易完成时间戳   |integer(int64)  |    |
-|direction | 订单方向,可用值:BUY,SELL   |string  |    |
+|completedTime | completed timestamp   |integer(int64)  |    |
+|direction | direction,value:BUY,SELL   |string  |    |
 |email |    |string  |    |
 |mobile |    |string  |    |
-|orderId | 订单ID   |string  |    |
-|price | 挂单价格   |number  |    |
-|status | 订单状态,可用值:'TRADING': '交易中', 'COMPLETED': '已完成', 'CANCELED': '已撤销', 'PARTFILLED': '部分成交', 'PARTFILL_CANCELD': '部分成交撤销', 'OVERTIMED': '已超时'   |string  |    |
-|symbol | 交易对   |string  |    |
-|time | 挂单时间戳   |integer(int64)  |    |
-|tradedAmount | 成交量   |number  |    |
-|turnover | 成交额   |number  |    |
-|type | 订单类型,可用值:MARKET_PRICE,LIMIT_PRICE   |string  |    |
-|useDiscount | 是否使用折扣(0不使用1使用)   |string  |    |
+|orderId | order ID   |string  |    |
+|price | order price   |number  |    |
+|status | order status,value:'TRADING': 'trading', 'COMPLETED': 'completed', 'CANCELED': 'canceled', 'PARTFILLED': 'partfilled', 'PARTFILL_CANCELD': 'partfilled canceled', 'OVERTIMED': 'overtimed'   |string  |    |
+|symbol | trading pair   |string  |    |
+|time | order timestamp   |integer(int64)  |    |
+|tradedAmount | trade volume   |number  |    |
+|turnover | turnover   |number  |    |
+|type | order type,value:MARKET_PRICE,LIMIT_PRICE   |string  |    |
+|useDiscount | discount used(0 No, 1 Yes)   |string  |    |
 
 
 **Sort**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
 
 
 
 
 
-## 查询订单详情
+## Request Order Details
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/order/orderDetail`
+**Interface URL**:`/openapi/v1/order/orderDetail`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -961,13 +961,13 @@ N/A at this time
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
 |orderId| 订单ID  | query | true |string  |    |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -997,58 +997,58 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |ExchangeOrder  | ExchangeOrder   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |ExchangeOrder  | ExchangeOrder   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
 **ExchangeOrder**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|amount | 数量   |number  |    |
-|baseSymbol | 结算币单位   |string  |    |
-|canceledTime | 取消时间戳   |integer(int64)  |    |
-|coinSymbol | 币单位   |string  |    |
+|amount | amount   |number  |    |
+|baseSymbol | base coin symbol   |string  |    |
+|canceledTime | cancel timestamp   |integer(int64)  |    |
+|coinSymbol | coin symbol   |string  |    |
 |completed |    |boolean  |    |
-|completedTime | 交易完成时间戳   |integer(int64)  |    |
-|direction | 订单方向,可用值:BUY,SELL   |string  |    |
+|completedTime | completed timestamp   |integer(int64)  |    |
+|direction | direction,value:BUY,SELL   |string  |    |
 |email |    |string  |    |
 |mobile |    |string  |    |
-|orderId | 订单ID   |string  |    |
-|price | 挂单价格   |number  |    |
-|status | 订单状态,可用值:'TRADING': '交易中', 'COMPLETED': '已完成', 'CANCELED': '已撤销', 'PARTFILLED': '部分成交', 'PARTFILL_CANCELD': '部分成交撤销', 'OVERTIMED': '已超时'   |string  |    |
-|symbol | 交易对   |string  |    |
-|time | 挂单时间戳   |integer(int64)  |    |
-|tradedAmount | 成交量   |number  |    |
-|turnover | 成交额   |number  |    |
-|type | 订单类型,可用值:MARKET_PRICE,LIMIT_PRICE   |string  |    |
-|useDiscount | 是否使用折扣(0不使用1使用)   |string  |    |
+|orderId | order ID   |string  |    |
+|price | order price   |number  |    |
+|status | order status,value:'TRADING': 'trading', 'COMPLETED': 'completed', 'CANCELED': 'canceled', 'PARTFILLED': 'partfilled', 'PARTFILL_CANCELD': 'partfilled cancelled', 'OVERTIMED': 'overtimed'   |string  |    |
+|symbol | trading pair   |string  |    |
+|time | order timestamp   |integer(int64)  |    |
+|tradedAmount | trade volume   |number  |    |
+|turnover | turnover  |number  |    |
+|type | order type,value:MARKET_PRICE,LIMIT_PRICE   |string  |    |
+|useDiscount | discount used (0 No, 1 Yes)   |string  |    |
 
 
 
 
-## 下单
+## Submit Order
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/order/place`
+**Interface URL**:`/openapi/v1/order/place`
 
 
-**请求方式**：`POST`
+**Request Method**：`POST`
 
 
 **consumes**:`["application/json"]`
@@ -1058,17 +1058,17 @@ N/A at this time
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|amount| 下单数量  | query | true |string  |    |
-|direction| 交易方向(0买1卖),可用值:0,1  | query | true |string  |    |
-|price| 下单价格  | query | false |string  |    |
-|symbol| 交易对  | query | true |string  |    |
-|type| 类型(0市价1限价),可用值:0,1  | query | true |string  |    |
+|amount| order amount  | query | true |string  |    |
+|direction| direction(0 buy, 1 sell),value:0,1  | query | true |string  |    |
+|price| order price  | query | false |string  |    |
+|symbol| trading pair  | query | true |string  |    |
+|type| Type(0 market, 1 limit),value:0,1  | query | true |string  |    |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -1078,28 +1078,28 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |string  |    |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |string  |    |
+|description| return description  |string  |    |
 
 
 # account
 
-## 获取账户余额
+## Request Account Balance
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/capital/balance`
+**Interface URL**:`/openapi/v1/capital/balance`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -1109,12 +1109,12 @@ N/A at this time
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -1130,41 +1130,41 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |array  | 用户资金信息   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |array  | user asset details   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
-**用户资金信息**
+**User Asset Details**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|availableAmount | 可用余额   |number  |    |
-|currency | 币种名   |string  |    |
-|frozenAmount | 冻结金额   |number  |    |
+|availableAmount | available amount   |number  |    |
+|currency | coin name   |string  |    |
+|frozenAmount | frozen amount  |number  |    |
 
 
-## 获取充币地址
+## Request Deposit Address
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/capital/depositAddress`
+**Interface URL**:`/openapi/v1/capital/depositAddress`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -1174,13 +1174,13 @@ N/A at this time
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|currencyName| 币种名称  | query | true |string  |    |
+|currencyName| coin name  | query | true |string  |    |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -1194,52 +1194,52 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |获取充币地址  | 获取充币地址   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |request deposit address  | request deposit address   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
-**获取充币地址**
+**Request Deposit Address**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|account | 带tag标签的币种的统一指定地址   |string  |    |
-|address | 账户收币地址   |string  |    |
-|havaTag | 是否拥有标签地址   |string  |    |
+|account | tagged coin types deposit to designated address   |string  |    |
+|address | account deposit address   |string  |    |
+|havaTag | have tagged address   |string  |    |
 
 
-## 获取充值记录
+## Request Deposit History
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/capital/depositRecord`
+**Interface URL**:`/openapi/v1/capital/depositRecord`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|pageNo| 当前页数  | query | false |integer  |    |
-|pageSize| 每页显示条数  | query | false |integer  |    |
+|pageNo| page number  | query | false |integer  |    |
+|pageSize| page size  | query | false |integer  |    |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -1280,25 +1280,25 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |PageInfo«充值记录信息»  | PageInfo«充值记录信息»   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |PageInfo«deposit history details»  | PageInfo«deposit history details»   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
-**PageInfo«充值记录信息»**
+**PageInfo«Deposit History Details»**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
 |endRow |    |integer(int32)  |    |
 |firstPage |    |integer(int32)  |    |
@@ -1307,7 +1307,7 @@ N/A at this time
 |isFirstPage |    |boolean  |    |
 |isLastPage |    |boolean  |    |
 |lastPage |    |integer(int32)  |    |
-|list |    |array  | 充值记录信息   |
+|list |    |array  | deposit history details   |
 |navigateFirstPage |    |integer(int32)  |    |
 |navigateLastPage |    |integer(int32)  |    |
 |navigatePages |    |integer(int32)  |    |
@@ -1321,29 +1321,29 @@ N/A at this time
 |startRow |    |integer(int32)  |    |
 |total |    |integer(int64)  |    |
 
-**充值记录信息**
+**Deposit History Details**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|accountAddress | 收币地址   |string  |    |
-|currency | 转入币种   |string  |    |
-|dateReceive | 转入时间   |string(date-time)  |    |
+|accountAddress | deposit address   |string  |    |
+|currency | deposit coin type   |string  |    |
+|dateReceive | deposit timestampe   |string(date-time)  |    |
 |id | ID   |string  |    |
-|receiveAmount | 转入币数量   |number  |    |
-|serialNumber | 订单流水号(充币交易id)   |string  |    |
-|state | 状态：3表示正在进行    1表示已完成   |string  |    |
+|receiveAmount | deposit amount   |number  |    |
+|serialNumber | order serial number (order id)   |string  |    |
+|state | status：3 pending,    1 complete   |string  |    |
 
 
-## 提币申请
+## Withdraw Request
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/capital/withdraw`
+**Interface URL**:`/openapi/v1/capital/withdraw`
 
 
-**请求方式**：`POST`
+**Request Method**：`POST`
 
 
 **consumes**:`["application/json"]`
@@ -1353,16 +1353,16 @@ N/A at this time
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|address| 提币地址  | query | true |string  |    |
-|currency| 币种名  | query | true |string  |    |
-|tag| 标签值  | query | true |string  |    |
-|widhdrawAmt| 提币数量  | query | true |string  |    |
+|address| withdraw address  | query | true |string  |    |
+|currency| coin type  | query | true |string  |    |
+|tag| tag value  | query | true |string  |    |
+|widhdrawAmt| withdraw amount  | query | true |string  |    |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -1372,40 +1372,40 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |object  |    |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |object  |    |
+|description| return description  |string  |    |
 
 
 
 
 
 
-## 获取提币记录
+## Request Withdraw History
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/capital/withdrawRecord`
+**Interface URL**:`/openapi/v1/capital/withdrawRecord`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|pageNo| 当前页数  | query | false |integer  |    |
-|pageSize| 每页显示条数  | query | false |integer  |    |
+|pageNo| page number  | query | false |integer  |    |
+|pageSize| page size  | query | false |integer  |    |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -1450,25 +1450,25 @@ N/A at this time
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |PageInfo«提币记录信息»  | PageInfo«提币记录信息»   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |PageInfo«withdraw history details»  | PageInfo«withdraw history details»   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
-**PageInfo«提币记录信息»**
+**PageInfo«withdraw history details»**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
 |endRow |    |integer(int32)  |    |
 |firstPage |    |integer(int32)  |    |
@@ -1491,81 +1491,81 @@ N/A at this time
 |startRow |    |integer(int32)  |    |
 |total |    |integer(int64)  |    |
 
-**提币记录信息**
+**Withdraw History Details**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|accountAddress | 转币地址   |string  |    |
-|actualAmount | 实到金额数量   |number  |    |
-|applyStatus | 申请状态 1:待审核2:审核通过3:审核不通过   |string  |    |
-|checkAddress | 币种区块浏览地址   |string  |    |
-|currencyName | 币种名称   |string  |    |
-|dateCreate | 申请时间   |string(date-time)  |    |
-|id | 主键id   |string  |    |
-|poundage | 手续费   |number  |    |
-|tag | tag值   |string  |    |
-|txId | 第三方依据流水   |string  |    |
-|withdrawAmount | 转币数量   |number  |    |
+|accountAddress | withdraw address   |string  |    |
+|actualAmount | actual amount   |number  |    |
+|applyStatus | request status 1:pending review, 2:approved, 3:not approved   |string  |    |
+|checkAddress | coin blockchain browser address   |string  |    |
+|currencyName | coin name   |string  |    |
+|dateCreate | request timestamp   |string(date-time)  |    |
+|id | main id   |string  |    |
+|poundage | transaction fee   |number  |    |
+|tag | tag value   |string  |    |
+|txId | third party transaction turnover   |string  |    |
+|withdrawAmount | withdraw amount   |number  |    |
 
 
 
 
 # transaction
 
-## 查询法币配置信息
+## Request Global Remittance Setting Details
 
-**接口地址** `/openapi/v1/transaction/legalConf`
-
-
-**请求方式** `GET`
+**Interface URL** `/openapi/v1/transaction/legalConf`
 
 
-**请求参数**
-
-暂无
+**Request Method** `GET`
 
 
+**Request Param**
 
-**响应参数**
+N/A at this time
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+
+
+**Return Param**
+
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-| code     |响应代码      |    string   |       |
-| data     |响应数据      |    array   |   法币币种信息    |
-| description     |响应描述      |    string   |       |
+| code     |return code      |    string   |       |
+| data     |return data      |    array   |   global remittance currency details    |
+| description     |return description      |    string   |       |
             
 
 
 
-**schema属性说明**
+**schema property**
   
-**法币币种信息**
+**Global Remittance Currency Details**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-| createAt         |     创建时间      |  integer(int64)   |      |
-| currencyId         |     稳定币ID      |  string   |      |
-| currencyName         |     稳定币名称      |  string   |      |
-| exportChannelRate         |     汇出通道费率      |  number   |      |
-| exportExcRate         |     汇出汇率      |  number   |      |
-| exportMaxAmount         |     汇出单笔最大值      |  number   |      |
-| exportMinAmount         |     汇出单笔最小值      |  number   |      |
-| exportStatus         |     汇出状态: 1.启用; 2.停用;      |  string   |      |
-| id         |     法币ID      |  string   |      |
-| importChannelRate         |     汇入通道费率      |  number   |      |
-| importExcRate         |     汇入汇率      |  number   |      |
-| importMaxAmount         |     汇入单笔最大值      |  number   |      |
-| importMinAmount         |     汇入单笔最小值      |  number   |      |
-| importStatus         |     汇入状态: 1.启用; 2.停用;      |  string   |      |
-| logoUrl         |     logo图片url      |  string   |      |
-| name         |     法币名称      |  string   |      |
-| projectName         |     项目名      |  string   |      |
+| createAt         |     create timestamp      |  integer(int64)   |      |
+| currencyId         |     stablecoin ID      |  string   |      |
+| currencyName         |     stablecoin name      |  string   |      |
+| exportChannelRate         |     sell channel fee      |  number   |      |
+| exportExcRate         |     sell exchange rate      |  number   |      |
+| exportMaxAmount         |     sell single max amount      |  number   |      |
+| exportMinAmount         |     sell single min amount      |  number   |      |
+| exportStatus         |     sell staus: 1.enable; 2.disable;      |  string   |      |
+| id         |     currency ID      |  string   |      |
+| importChannelRate         |     buy channel fee      |  number   |      |
+| importExcRate         |     buy exchange rate      |  number   |      |
+| importMaxAmount         |     buy single max amount      |  number   |      |
+| importMinAmount         |     buy single min amount      |  number   |      |
+| importStatus         |     buy status: 1.enable; 2.disable;      |  string   |      |
+| logoUrl         |     logo picture url      |  string   |      |
+| name         |     currency name      |  string   |      |
+| projectName         |     project name      |  string   |      |
             
 
 
 
 
-**响应示例**
+**Return Example**
 
 
 ```json
@@ -1597,105 +1597,105 @@ N/A at this time
 ```
 
 
-## 汇入
+## Buy Order
 
-**接口地址** `/openapi/v1/transaction/in`
-
-
-**请求方式** `POST`
+**Interface URL** `/openapi/v1/transaction/in`
 
 
-**接口描述** 
+**Request Method** `POST`
 
 
-**请求参数**
+**Interface Description** 
 
-| 参数名称         | 参数说明     |     请求类型 |  是否必须      |  数据类型   |  schema  |
+
+**Request Param**
+
+| Param Name         | Param Desc     |     Request Type |  Mandatory      |  Data Type   |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-| legalAmount         |      法币数量   |     query        |       true      | number   |      |
-| legalCurrenyId         |      法币ID   |     query        |       true      | string   |      |
+| legalAmount         |      currency amount   |     query        |       true      | number   |      |
+| legalCurrenyId         |      currency ID   |     query        |       true      | string   |      |
 
 
 
-**响应参数**
+**Return Param**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-| code     |响应代码      |    string   |       |
-| data     |响应数据      |    交易申请信息   |   交易申请信息    |
-| description     |响应描述      |    string   |       |
+| code     |return code      |    string   |       |
+| data     |return data      |    submit transaction details   |   submit transaction details    |
+| description     |return description      |    string   |       |
             
 
-**schema属性说明**
+**schema property**
   
-**交易申请信息**
+**Submit Transaction Details**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-| bankSerialNumber         |     银行流水号      |  string   |      |
-| channelFee         |     收取的通道费      |  number   |      |
-| channelFeeRate         |     通道费率      |  number   |      |
-| createAt         |     创建时间      |  integer(int64)   |      |
-| currencyAmount         |     稳定币数量      |  number   |      |
-| currencyId         |     稳定币ID      |  string   |      |
-| currenyName         |     稳定币名称      |  string   |      |
-| exchRate         |     当前实时汇率      |  number   |      |
-| fee         |     手续费（收取法币手续费）      |  number   |      |
-| id         |     主键ID      |  string   |      |
-| legalAmount         |     法币数量      |  number   |      |
-| legalCurrenyId         |     法币ID      |  string   |      |
-| legalCurrenyName         |     法币名称      |  string   |      |
-| noteCode         |     转账汇款备注码      |  string   |      |
-| originalCurrencyAmount         |     原稳定币数量      |  number   |      |
-| payAt         |     付款时间      |  integer(int64)   |      |
-| payBirthDate         |     汇款人出生日期(yyyy-MM-dd)      |  string   |      |
-| payCountry         |     汇款人国籍      |  string   |      |
-| payDeadline         |     付款截止时间      |  integer(int64)   |      |
-| payFirstName         |     汇款人名字      |  string   |      |
-| payLastName         |     汇款人姓氏      |  string   |      |
-| payMiddleName         |     汇款人中间名      |  string   |      |
-| payType         |     支付方式 1.微信 2.支付宝 3.银行卡      |  string   |      |
-| receiveAccount         |     平台收款账户      |  平台收款账户   | 平台收款账户     |
-| receiveId         |     收款账户ID      |  string   |      |
-| remark         |     备注      |  string   |      |
-| source         |     来源: 1.PC 3.安卓 4.苹果 5.微信 6.H5      |  string   |      |
-| status         |     状态: 1.待付款 2.支付超时 3.已取消 4.待审核 5.审核不通过 6.已完结      |  string   |      |
-| transactionType         |     交易类型: 1.汇入; 2.汇出;      |  string   |      |
-| userCode         |     UID用户编号      |  string   |      |
-| userId         |     用户Id      |  string   |      |
-| verifiedAt         |     审核时间      |  integer(int64)   |      |
-| verifiedDescCn         |     审核描述(中文)      |  string   |      |
-| verifiedDescEs         |     审核描述(英文)      |  string   |      |
+| bankSerialNumber         |     bank serial number      |  string   |      |
+| channelFee         |     channel fee      |  number   |      |
+| channelFeeRate         |     channel fee rate      |  number   |      |
+| createAt         |     create timestamp      |  integer(int64)   |      |
+| currencyAmount         |     stablecoin amount      |  number   |      |
+| currencyId         |     stablecoin ID      |  string   |      |
+| currenyName         |     stablecoin name      |  string   |      |
+| exchRate         |     current exchange rate      |  number   |      |
+| fee         |     transaction fee（deducted transaction fee）      |  number   |      |
+| id         |     main ID      |  string   |      |
+| legalAmount         |     currency amount      |  number   |      |
+| legalCurrenyId         |     currency ID      |  string   |      |
+| legalCurrenyName         |     currency name      |  string   |      |
+| noteCode         |     bank transfer referral code      |  string   |      |
+| originalCurrencyAmount         |     original stablecoin amount      |  number   |      |
+| payAt         |     payment timestamp      |  integer(int64)   |      |
+| payBirthDate         |     sender birthdate(yyyy-MM-dd)      |  string   |      |
+| payCountry         |     sender nationality      |  string   |      |
+| payDeadline         |     payment deadline      |  integer(int64)   |      |
+| payFirstName         |     sender first name      |  string   |      |
+| payLastName         |     sender last name      |  string   |      |
+| payMiddleName         |     sender middle name      |  string   |      |
+| payType         |     payment method 1.bank transfer 2.wire transfer 3.credit card      |  string   |      |
+| receiveAccount         |     platform bank account      |  platform bank account   | platform bank account     |
+| receiveId         |     platform bank account ID      |  string   |      |
+| remark         |     remark      |  string   |      |
+| source         |     source: 1.PC 3.android 4.apple 5.wechat 6.H5      |  string   |      |
+| status         |     status: 1.pending payment 2. timeout 3.canceled 4.pending review 5.rejected 6.complete      |  string   |      |
+| transactionType         |     transaction type: 1.Buy; 2.Sell;      |  string   |      |
+| userCode         |     UID      |  string   |      |
+| userId         |     user ID      |  string   |      |
+| verifiedAt         |     review timestamp      |  integer(int64)   |      |
+| verifiedDescCn         |     review details(chinese)      |  string   |      |
+| verifiedDescEs         |     review details(english)      |  string   |      |
             
 
-**平台收款账户**
+**Platform Bank Account**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-| address         |     收款人地址      |  string   |      |
-| bankAddress         |     收款银行地址      |  string   |      |
-| bankCardNo         |     收款银行账号      |  string   |      |
-| bankCity         |     收款银行城市      |  string   |      |
-| bankCountry         |     收款银行国家      |  string   |      |
-| bankName         |     收款银行名称      |  string   |      |
-| bankProvince         |     收款银行省份      |  string   |      |
-| bankSwiftCode         |     收款银行Swift码      |  string   |      |
-| city         |     收款人城市      |  string   |      |
-| country         |     收款人国家      |  string   |      |
-| createAt         |     创建时间      |  integer(int64)   |      |
-| firstName         |     收款人名字      |  string   |      |
-| id         |     主键ID      |  string   |      |
-| lastModifyAt         |     最后修改时间      |  integer(int64)   |      |
-| lastName         |     收款人姓氏      |  string   |      |
-| middleName         |     收款人中间名      |  string   |      |
-| province         |     收款人省份      |  string   |      |
-| remittanceType         |     转账汇款方式：1.PH Local; 2.Swift      |  string   |      |
-| symbol         |     资产类型(目前仅支持USD和PHP)      |  string   |      |
-| type         |     账户类型: 1. 系统账户; 2.平台用户;      |  string   |      |
-| userId         |     用户ID      |  string   |      |
+| address         |     beneficiary address      |  string   |      |
+| bankAddress         |     beneficiary bank address      |  string   |      |
+| bankCardNo         |     beneficiary bank account number      |  string   |      |
+| bankCity         |     beneficiary bank city      |  string   |      |
+| bankCountry         |     beneficiary bank country      |  string   |      |
+| bankName         |     beneficiary bank name      |  string   |      |
+| bankProvince         |     beneficiary bank province      |  string   |      |
+| bankSwiftCode         |     beneficiary bank Swift code      |  string   |      |
+| city         |     beneficiary city      |  string   |      |
+| country         |     beneficiary country      |  string   |      |
+| createAt         |     create timestamp      |  integer(int64)   |      |
+| firstName         |     beneficiary name      |  string   |      |
+| id         |     main ID      |  string   |      |
+| lastModifyAt         |     last modified timestamp      |  integer(int64)   |      |
+| lastName         |     beneficiary last name      |  string   |      |
+| middleName         |     beneficiary middle name      |  string   |      |
+| province         |     beneficiary province      |  string   |      |
+| remittanceType         |     remittance type：1.PH Local; 2.Swift      |  string   |      |
+| symbol         |     asset type(currently only support USD and PHP)      |  string   |      |
+| type         |     account type: 1. system account; 2.platform user;      |  string   |      |
+| userId         |     user ID      |  string   |      |
             
 
-**响应示例**
+**Return Example**
 
 
 ```json
@@ -1764,129 +1764,129 @@ N/A at this time
 ```
 
 
-## 汇出
+## Sell Order
 
-**接口地址** `/openapi/v1/transaction/out`
-
-
-**请求方式** `POST`
+**Interface URL** `/openapi/v1/transaction/out`
 
 
+**Request Method** `POST`
 
-**接口描述** 
 
-**请求参数**
 
-| 参数名称         | 参数说明     |     请求类型 |  是否必须      |  数据类型   |  schema  |
+**Interface Description** 
+
+**Request Param**
+
+| Param Name         | Param Desc     |     Request Type |  Mandatory      |  Data Type   |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-| address         |      收款人地址   |     query        |       true      | string   |      |
-| bankAddress         |      收款银行地址   |     query        |       false      | string   |      |
-| bankCardNo         |      收款银行账号   |     query        |       true      | string   |      |
-| bankCity         |      收款银行城市   |     query        |       false      | string   |      |
-| bankCountry         |      收款银行国家   |     query        |       false      | string   |      |
-| bankName         |      收款银行名称   |     query        |       true      | string   |      |
-| bankProvince         |      收款银行省份   |     query        |       false      | string   |      |
-| bankSwiftCode         |      收款银行Swift码   |     query        |       false      | string   |      |
-| city         |      收款人城市   |     query        |       true      | string   |      |
-| country         |      收款人国家   |     query        |       true      | string   |      |
-| currencyAmount         |      稳定币数量   |     query        |       false      | number   |      |
-| firstName         |      收款人名字   |     query        |       true      | string   |      |
-| lastName         |      收款人姓氏   |     query        |       true      | string   |      |
-| legalCurrenyId         |      法币ID   |     query        |       false      | string   |      |
-| locale         |      语言   |     query        |       false      | string   |      |
-| middleName         |      收款人中间名   |     query        |       false      | string   |      |
-| province         |      收款人省份   |     query        |       true      | string   |      |
-| tradePwd         |      交易密码   |     query        |       false      | string   |      |
-| type         |      账户类型: 2.平台用户   |     query        |       false      | string   |      |
-| symbol         |      法币类型 目前仅支持USD和PHP   |     query        |       false      | string   |      |
-| remittanceType         |      转账汇款方式：1.PH Local; 2.Swift  |     query        |       false      | string   |      |
+| address         |      beneficiary address   |     query        |       true      | string   |      |
+| bankAddress         |      beneficiary bank address   |     query        |       false      | string   |      |
+| bankCardNo         |      beneficiary bank account   |     query        |       true      | string   |      |
+| bankCity         |      beneficiary bank city   |     query        |       false      | string   |      |
+| bankCountry         |      beneficiary bank country   |     query        |       false      | string   |      |
+| bankName         |      beneficiary bank name   |     query        |       true      | string   |      |
+| bankProvince         |      beneficiary bank province   |     query        |       false      | string   |      |
+| bankSwiftCode         |      beneficiary bank Swift code   |     query        |       false      | string   |      |
+| city         |      beneficiary city   |     query        |       true      | string   |      |
+| country         |      beneficiary country   |     query        |       true      | string   |      |
+| currencyAmount         |      stablecoin amount   |     query        |       false      | number   |      |
+| firstName         |      beneficiary first name   |     query        |       true      | string   |      |
+| lastName         |      beneficiary last name   |     query        |       true      | string   |      |
+| legalCurrenyId         |      currency ID   |     query        |       false      | string   |      |
+| locale         |      language   |     query        |       false      | string   |      |
+| middleName         |      beneficiary middle name   |     query        |       false      | string   |      |
+| province         |      beneficiary province   |     query        |       true      | string   |      |
+| tradePwd         |      transaction password   |     query        |       false      | string   |      |
+| type         |      account type: 2.platform user   |     query        |       false      | string   |      |
+| symbol         |      currency type currently only support USD and PHP   |     query        |       false      | string   |      |
+| remittanceType         |      remittance type：1.PH Local; 2.Swift  |     query        |       false      | string   |      |
             
 
 
-**响应参数**
+**Return Param**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-| code     |响应代码      |    string   |       |
-| data     |响应数据      |    交易申请信息   |   交易申请信息    |
-| description     |响应描述      |    string   |       |
+| code     |return code      |    string   |       |
+| data     |return data      |    submit transaction details   |   submit transaction details    |
+| description     |return description      |    string   |       |
 
 
 
 
-**schema属性说明**
+**schema property**
   
-**交易申请信息**
+**Submit Transaction Details**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-| bankSerialNumber         |     银行流水号      |  string   |      |
-| channelFee         |     收取的通道费      |  number   |      |
-| channelFeeRate         |     通道费率      |  number   |      |
-| createAt         |     创建时间      |  integer(int64)   |      |
-| currencyAmount         |     稳定币数量      |  number   |      |
-| currencyId         |     稳定币ID      |  string   |      |
-| currenyName         |     稳定币名称      |  string   |      |
-| exchRate         |     当前实时汇率      |  number   |      |
-| fee         |     手续费（收取法币手续费）      |  number   |      |
-| id         |     主键ID      |  string   |      |
-| legalAmount         |     法币数量      |  number   |      |
-| legalCurrenyId         |     法币ID      |  string   |      |
-| legalCurrenyName         |     法币名称      |  string   |      |
-| noteCode         |     转账汇款备注码      |  string   |      |
-| originalCurrencyAmount         |     原稳定币数量      |  number   |      |
-| payAt         |     付款时间      |  integer(int64)   |      |
-| payBirthDate         |     汇款人出生日期(yyyy-MM-dd)      |  string   |      |
-| payCountry         |     汇款人国籍      |  string   |      |
-| payDeadline         |     付款截止时间      |  integer(int64)   |      |
-| payFirstName         |     汇款人名字      |  string   |      |
-| payLastName         |     汇款人姓氏      |  string   |      |
-| payMiddleName         |     汇款人中间名      |  string   |      |
-| payType         |     支付方式 1.微信 2.支付宝 3.银行卡      |  string   |      |
-| receiveAccount         |     平台收款账户      |  平台收款账户   | 平台收款账户     |
-| receiveId         |     收款账户ID      |  string   |      |
-| remark         |     备注      |  string   |      |
-| source         |     来源: 1.PC 3.安卓 4.苹果 5.微信 6.H5      |  string   |      |
-| status         |     状态: 1.待付款 2.支付超时 3.已取消 4.待审核 5.审核不通过 6.已完结      |  string   |      |
-| transactionType         |     交易类型: 1.汇入; 2.汇出;      |  string   |      |
-| userCode         |     UID用户编号      |  string   |      |
-| userId         |     用户Id      |  string   |      |
-| verifiedAt         |     审核时间      |  integer(int64)   |      |
-| verifiedDescCn         |     审核描述(中文)      |  string   |      |
-| verifiedDescEs         |     审核描述(英文)      |  string   |      |
+| bankSerialNumber         |     bank serial number      |  string   |      |
+| channelFee         |     channel fee      |  number   |      |
+| channelFeeRate         |     channel fee rate      |  number   |      |
+| createAt         |     create timestamp      |  integer(int64)   |      |
+| currencyAmount         |     stablecoin amount      |  number   |      |
+| currencyId         |     stablecoin ID      |  string   |      |
+| currenyName         |     stablecoin name      |  string   |      |
+| exchRate         |     current exchange rate      |  number   |      |
+| fee         |     transaction fee（deducted transaction fee）      |  number   |      |
+| id         |     main ID      |  string   |      |
+| legalAmount         |     currency amount      |  number   |      |
+| legalCurrenyId         |     currency ID      |  string   |      |
+| legalCurrenyName         |     currency name      |  string   |      |
+| noteCode         |     remittance referral code      |  string   |      |
+| originalCurrencyAmount         |     原稳定币amount      |  number   |      |
+| payAt         |     payment timestamp      |  integer(int64)   |      |
+| payBirthDate         |     sender birthday(yyyy-MM-dd)      |  string   |      |
+| payCountry         |     sender nationality      |  string   |      |
+| payDeadline         |     payment deadline      |  integer(int64)   |      |
+| payFirstName         |     sender first name      |  string   |      |
+| payLastName         |     sender last name      |  string   |      |
+| payMiddleName         |     sender middle name      |  string   |      |
+| payType         |     payment method 1.bank transfer 2.SWIFT transfer 3.credit card      |  string   |      |
+| receiveAccount         |     platform bank account      |  platform bank account   | platform bank account     |
+| receiveId         |     platform bank account ID      |  string   |      |
+| remark         |     remark      |  string   |      |
+| source         |     source: 1.PC 3.android 4.apple 5.wechat 6.H5      |  string   |      |
+| status         |     status: 1.pending payment 2.timeout 3.canceld 4.pending review 5.rejected 6.complete      |  string   |      |
+| transactionType         |     transaction type: 1.Buy; 2.Sell;      |  string   |      |
+| userCode         |     UID      |  string   |      |
+| userId         |     User ID      |  string   |      |
+| verifiedAt         |     review timestamp      |  integer(int64)   |      |
+| verifiedDescCn         |     review details(chinese)      |  string   |      |
+| verifiedDescEs         |     review details(english)      |  string   |      |
             
 
-**平台收款账户**
+**Platform Bank Account**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-| address         |     收款人地址      |  string   |      |
-| bankAddress         |     收款银行地址      |  string   |      |
-| bankCardNo         |     收款银行账号      |  string   |      |
-| bankCity         |     收款银行城市      |  string   |      |
-| bankCountry         |     收款银行国家      |  string   |      |
-| bankName         |     收款银行名称      |  string   |      |
-| bankProvince         |     收款银行省份      |  string   |      |
-| bankSwiftCode         |     收款银行Swift码      |  string   |      |
-| city         |     收款人城市      |  string   |      |
-| country         |     收款人国家      |  string   |      |
-| createAt         |     创建时间      |  integer(int64)   |      |
-| firstName         |     收款人名字      |  string   |      |
-| id         |     主键ID      |  string   |      |
-| lastModifyAt         |     最后修改时间      |  integer(int64)   |      |
-| lastName         |     收款人姓氏      |  string   |      |
-| middleName         |     收款人中间名      |  string   |      |
-| province         |     收款人省份      |  string   |      |
-| remittanceType         |     转账汇款方式：1.PH Local; 2.Swift      |  string   |      |
-| symbol         |     资产类型(目前仅支持USD和PHP)      |  string   |      |
-| type         |     账户类型: 1. 系统账户; 2.平台用户;      |  string   |      |
-| userId         |     用户ID      |  string   |      |
+| address         |     beneficiary address      |  string   |      |
+| bankAddress         |     beneficiary bank address      |  string   |      |
+| bankCardNo         |     beneficiary bank account      |  string   |      |
+| bankCity         |     beneficiary bank city      |  string   |      |
+| bankCountry         |     beneficiary bank country      |  string   |      |
+| bankName         |     beneficiary bank name      |  string   |      |
+| bankProvince         |     beneficiary bank province收款银行省份      |  string   |      |
+| bankSwiftCode         |     beneficiary bank SWIFT code      |  string   |      |
+| city         |     beneficiary city      |  string   |      |
+| country         |     beneficiary country      |  string   |      |
+| createAt         |     create timestamp      |  integer(int64)   |      |
+| firstName         |     beneficiary first name      |  string   |      |
+| id         |     main ID      |  string   |      |
+| lastModifyAt         |     last modified time      |  integer(int64)   |      |
+| lastName         |     beneficiary last name      |  string   |      |
+| middleName         |     beneficiary middle name      |  string   |      |
+| province         |     beneficiary province      |  string   |      |
+| remittanceType         |     remittance type：1.PH Local; 2.Swift      |  string   |      |
+| symbol         |     asset type(currently only support USD and PHP)      |  string   |      |
+| type         |     account type: 1. system account ; 2.platform user;      |  string   |      |
+| userId         |     user ID      |  string   |      |
             
 
 
 
 
-**响应示例**
+**Return Example**
 
 
 ```json
@@ -1955,37 +1955,37 @@ N/A at this time
 ```
 
 
-## 撤销
+## Cancel Order
 
-**接口地址** `/openapi/v1/transaction/cancel`
-
-
-**请求方式** `POST`
+**Interface URL** `/openapi/v1/transaction/cancel`
 
 
-**接口描述** 
+**Request Method** `POST`
 
-**请求参数**
 
-| 参数名称         | 参数说明     |     请求类型 |  是否必须      |  数据类型   |  schema  |
+**Interface Description** 
+
+**Request Param**
+
+| Param Name         | Param Desc     |     Request Type |  Mandatory      |  Data Type   |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-| id         |      主键ID   |     query        |       true      | string   |      |       
+| id         |      Main ID   |     query        |       true      | string   |      |       
 
 
 
-**响应参数**
+**Return Param**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-| code     |响应代码      |    string   |       |
-| data     |响应数据      |    object   |       |
-| description     |响应描述      |    string   |       |
+| code     |return code      |    string   |       |
+| data     |return data      |    object   |       |
+| description     |return description      |    string   |       |
 
 
 
 
 
-**响应示例**
+**Return Example**
 
 
 ```json
@@ -1997,34 +1997,34 @@ N/A at this time
 ```
 
 
-## 已付款
+## Paid Order
 
-**接口地址** `/openapi/v1/transaction/pay`
-
-
-**请求方式** `POST`
+**Interface URL** `/openapi/v1/transaction/pay`
 
 
-**接口描述** 
+**Request Method** `POST`
 
-**请求参数**
 
-| 参数名称         | 参数说明     |     请求类型 |  是否必须      |  数据类型   |  schema  |
+**Interface Description** 
+
+**Request Param**
+
+| Param Name         | Param Desc     |     Request Type |  Mandatory      |  Data Type   |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
 | apiKey         |      apiKey   |     header        |       true      | string   |      |
-| id         |      主键ID   |     query        |       true      | string   |      |
+| id         |      Main ID   |     query        |       true      | string   |      |
 
 
-**响应参数**
+**Return Param**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-| code     |响应代码      |    string   |       |
-| data     |响应数据      |    object   |       |
-| description     |响应描述      |    string   |       |
+| code     |return code      |    string   |       |
+| data     |return data      |    object   |       |
+| description     |return description      |    string   |       |
             
 
-**响应示例**
+**Return Example**
 
 
 ```json
@@ -2036,44 +2036,44 @@ N/A at this time
 ```
 
 
-## 查询交易(汇入、汇出)记录
+## Request Transaction (Buy、Sell) History
 
-**接口地址** `/openapi/v1/transaction/transactionList`
-
-
-**请求方式** `POST`
+**Interface URL** `/openapi/v1/transaction/transactionList`
 
 
+**Request Method** `POST`
 
 
-**接口描述** 
 
-**请求参数**
 
-| 参数名称         | 参数说明     |     请求类型 |  是否必须      |  数据类型   |  schema  |
+**Interface Description** 
+
+**Request Param**
+
+| Param Name         | Param Desc     |     Request Type |  Mandatory      |  Data Type   |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-| pageNo         |      当前页数   |     query        |       false      | integer   |      |
-| pageSize         |      每页显示条数   |     query        |       false      | integer   |      |
-| statuses         |      状态: 1.待付款 2.支付超时 3.已取消 4.待审核 5.审核不通过 6.已完结   |     query        |       false      | array   | string     |
+| pageNo         |      page number   |     query        |       false      | integer   |      |
+| pageSize         |      page size   |     query        |       false      | integer   |      |
+| statuses         |      status: 1.pending payment 2.timedout 3.canceled 4.pending review 5.rejected 6.complete   |     query        |       false      | array   | string     |
             
 
 
-**响应参数**
+**Return Param**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-| code     |响应代码      |    string   |       |
-| data     |响应数据      |    PageInfo«交易申请信息»   |   PageInfo«交易申请信息»    |
-| description     |响应描述      |    string   |       |
+| code     |return code      |    string   |       |
+| data     |return data      |    PageInfo«submit transaction details»   |   PageInfo«submit transaction details»    |
+| description     |return description      |    string   |       |
             
 
 
 
-**schema属性说明**
+**schema property**
   
-**PageInfo«交易申请信息»**
+**PageInfo«submit transaction details»**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
 | endRow         |           |  integer(int32)   |      |
 | firstPage         |           |  integer(int32)   |      |
@@ -2082,7 +2082,7 @@ N/A at this time
 | isFirstPage         |           |  boolean   |      |
 | isLastPage         |           |  boolean   |      |
 | lastPage         |           |  integer(int32)   |      |
-| list         |           |  array   | 交易申请信息     |
+| list         |           |  array   | submit transaction details     |
 | navigateFirstPage         |           |  integer(int32)   |      |
 | navigateLastPage         |           |  integer(int32)   |      |
 | navigatePages         |           |  integer(int32)   |      |
@@ -2097,77 +2097,77 @@ N/A at this time
 | total         |           |  integer(int64)   |      |
 
 
-**交易申请信息**
+**Submit Transaction Details**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-| bankSerialNumber         |     银行流水号      |  string   |      |
-| channelFee         |     收取的通道费      |  number   |      |
-| channelFeeRate         |     通道费率      |  number   |      |
-| createAt         |     创建时间      |  integer(int64)   |      |
-| currencyAmount         |     稳定币数量      |  number   |      |
-| currencyId         |     稳定币ID      |  string   |      |
-| currenyName         |     稳定币名称      |  string   |      |
-| exchRate         |     当前实时汇率      |  number   |      |
-| fee         |     手续费（收取法币手续费）      |  number   |      |
-| id         |     主键ID      |  string   |      |
-| legalAmount         |     法币数量      |  number   |      |
-| legalCurrenyId         |     法币ID      |  string   |      |
-| legalCurrenyName         |     法币名称      |  string   |      |
-| noteCode         |     转账汇款备注码      |  string   |      |
-| originalCurrencyAmount         |     原稳定币数量      |  number   |      |
-| payAt         |     付款时间      |  integer(int64)   |      |
-| payBirthDate         |     汇款人出生日期(yyyy-MM-dd)      |  string   |      |
-| payCountry         |     汇款人国籍      |  string   |      |
-| payDeadline         |     付款截止时间      |  integer(int64)   |      |
-| payFirstName         |     汇款人名字      |  string   |      |
-| payLastName         |     汇款人姓氏      |  string   |      |
-| payMiddleName         |     汇款人中间名      |  string   |      |
-| payType         |     支付方式 1.微信 2.支付宝 3.银行卡      |  string   |      |
-| receiveAccount         |     平台收款账户      |  平台收款账户   | 平台收款账户     |
-| receiveId         |     收款账户ID      |  string   |      |
-| remark         |     备注      |  string   |      |
-| source         |     来源: 1.PC 3.安卓 4.苹果 5.微信 6.H5      |  string   |      |
-| status         |     状态: 1.待付款 2.支付超时 3.已取消 4.待审核 5.审核不通过 6.已完结      |  string   |      |
-| transactionType         |     交易类型: 1.汇入; 2.汇出;      |  string   |      |
-| userCode         |     UID用户编号      |  string   |      |
-| userId         |     用户Id      |  string   |      |
-| verifiedAt         |     审核时间      |  integer(int64)   |      |
-| verifiedDescCn         |     审核描述(中文)      |  string   |      |
-| verifiedDescEs         |     审核描述(英文)      |  string   |      |
+| bankSerialNumber         |     bank serial number      |  string   |      |
+| channelFee         |     channel fee      |  number   |      |
+| channelFeeRate         |     channel fee rate      |  number   |      |
+| createAt         |     create timestamp      |  integer(int64)   |      |
+| currencyAmount         |     stablecoin amount      |  number   |      |
+| currencyId         |     stablecoin ID      |  string   |      |
+| currenyName         |     stablecoin name      |  string   |      |
+| exchRate         |     current exchange rate      |  number   |      |
+| fee         |     transaction fee（deducted transaction fee）      |  number   |      |
+| id         |     main ID      |  string   |      |
+| legalAmount         |     currency amount      |  number   |      |
+| legalCurrenyId         |     currency ID      |  string   |      |
+| legalCurrenyName         |     currency name      |  string   |      |
+| noteCode         |     bank transfer referral code      |  string   |      |
+| originalCurrencyAmount         |     original stablecoin amount      |  number   |      |
+| payAt         |     payment time      |  integer(int64)   |      |
+| payBirthDate         |     sender birth date (yyyy-MM-dd)      |  string   |      |
+| payCountry         |     sender nationality      |  string   |      |
+| payDeadline         |     payment deadline      |  integer(int64)   |      |
+| payFirstName         |     sender first name      |  string   |      |
+| payLastName         |     sender last name      |  string   |      |
+| payMiddleName         |     sender middle name      |  string   |      |
+| payType         |     payment method 1.bank transfer 2.wire transfer 3.credit card      |  string   |      |
+| receiveAccount         |     platform bank account      |  platform bank account   | platform bank account     |
+| receiveId         |     platform bank account ID      |  string   |      |
+| remark         |     remark      |  string   |      |
+| source         |     source: 1.PC 3.Android 4.Apple 5.Wechat 6.H5      |  string   |      |
+| status         |     status: 1.pending payment 2.timedout 3.canceled 4.pending review 5.rejected 6.complete      |  string   |      |
+| transactionType         |     transaction type: 1.Buy; 2.Sell;      |  string   |      |
+| userCode         |     UID      |  string   |      |
+| userId         |     User ID      |  string   |      |
+| verifiedAt         |     review timestamp      |  integer(int64)   |      |
+| verifiedDescCn         |     review details(chinese)      |  string   |      |
+| verifiedDescEs         |     review details(english)      |  string   |      |
             
 
-**平台收款账户**
+**Platform Bank Account**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-| address         |     收款人地址      |  string   |      |
-| bankAddress         |     收款银行地址      |  string   |      |
-| bankCardNo         |     收款银行账号      |  string   |      |
-| bankCity         |     收款银行城市      |  string   |      |
-| bankCountry         |     收款银行国家      |  string   |      |
-| bankName         |     收款银行名称      |  string   |      |
-| bankProvince         |     收款银行省份      |  string   |      |
-| bankSwiftCode         |     收款银行Swift码      |  string   |      |
-| city         |     收款人城市      |  string   |      |
-| country         |     收款人国家      |  string   |      |
-| createAt         |     创建时间      |  integer(int64)   |      |
-| firstName         |     收款人名字      |  string   |      |
-| id         |     主键ID      |  string   |      |
-| lastModifyAt         |     最后修改时间      |  integer(int64)   |      |
-| lastName         |     收款人姓氏      |  string   |      |
-| middleName         |     收款人中间名      |  string   |      |
-| province         |     收款人省份      |  string   |      |
-| remittanceType         |     转账汇款方式：1.PH Local; 2.Swift      |  string   |      |
-| symbol         |     资产类型(目前仅支持USD和PHP)      |  string   |      |
-| type         |     账户类型: 1. 系统账户; 2.平台用户;      |  string   |      |
-| userId         |     用户ID      |  string   |      |
+| address         |     beneficiary address      |  string   |      |
+| bankAddress         |     beneficiary bank address      |  string   |      |
+| bankCardNo         |     beneficiary bank account      |  string   |      |
+| bankCity         |     beneficiary bank city      |  string   |      |
+| bankCountry         |     beneficiary bank country      |  string   |      |
+| bankName         |     beneficiary bank name      |  string   |      |
+| bankProvince         |     beneficiary bank province      |  string   |      |
+| bankSwiftCode         |     beneficiary bank SWIFT code     |  string   |      |
+| city         |     beneficiary city      |  string   |      |
+| country         |     beneficiary country      |  string   |      |
+| createAt         |     create timstamp      |  integer(int64)   |      |
+| firstName         |     beneficiary first name      |  string   |      |
+| id         |     main ID      |  string   |      |
+| lastModifyAt         |     last modified time      |  integer(int64)   |      |
+| lastName         |     beneficiary last name      |  string   |      |
+| middleName         |     beneficiary middle name      |  string   |      |
+| province         |     beneficiary province      |  string   |      |
+| remittanceType         |     remittance type：1.PH Local; 2.Swift      |  string   |      |
+| symbol         |     asset type(currently only support USD and PHP)      |  string   |      |
+| type         |     account type: 1. System Account; 2.Platform User;      |  string   |      |
+| userId         |     user ID      |  string   |      |
             
 
 
 
 
-**响应示例**
+**Return Example**
 
 
 ```json
