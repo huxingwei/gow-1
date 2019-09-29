@@ -3,50 +3,50 @@
 
 
 
-# API简介
+# API Overview
 
-欢迎使用gow API！ 您可以使用此 API 获得市场行情数据，进行交易，并且管理你的账户。
+Welcome to the GOW API！ You can use this API to obtain market data, perform transactions, as well as manage your account.
 
 
-# 接入说明
+# Integration Overview
 
-## 接入url
+## Integration url
 
 **REST API**:http://47.75.162.18:56666/
 
-## 请求头部参数信息
+## Request Header Parameters
 
-接口请求头部必须包含以下信息
+Request headers must include below:
 
 * content-type：application/json
-* timestamp：请求时间戳，单位毫秒
-* apiKey：API KEY访问密钥
-* sign：签名信息
+* timestamp：request timestamp, by milliseconds
+* apiKey：API KEY
+* sign：signature
 
 
-## 签名认证
+## Signature Verificiation
 
-### 创建API KEY
+### Create API KEY
 
-API Key 包括以下两部分
-* API KEY api访问密钥
-* Secret Key 签名认证加密所使用的密钥（仅申请时可见）
+API Key should include below two sections
+* API KEY 
+* Secret Key (for encryption, and only viewable during application)
 
-### 签名步骤
+### Signature Steps
 
-签名使用HmacSHA512算法签名，签名内容将各参数使用字符 “&” 连接
+Signature uses HmacSHA512 encryption，signature content and parameters should be linked using the "&" symbol
 
-#### 签名内容
+#### Signature Content
 
-**GET请求**:只需要将apiKey和timestamp按照ASCII码的顺序对参数名进行倒序排序，如：
+**GET Request**:Need to utilize apiKey and timestamp, using reverse order basis ASCII, eg
 * timestamp=1566322200000&apiKey=4565B83XXXXXXXXXXXXF123
 
-**POST请求**:需将apiKey和timestamp以及对应接口传参按照ASCII码的顺序对参数名进行倒序排序，如撤销订单：
+**POST Request**:Need to utilize apiKey and timestamp, using reverse order basis ASCII, eg Cancel Order:
 * timestamp=1566322200000&orderId=E12345XXXXXXXX&apiKey=4565B83XXXXXXXXXXXXF123
 
-#### 签名
+#### Signature
 
-将生成的签名内容和secretKey使用HmacSHA512算法生成签名
+Create the signature using secretKey and HmacSHA512 encryption
 
 ```java
             String timestamp = "1566322200000";
@@ -60,32 +60,32 @@ API Key 包括以下两部分
 
 ```
 
-## 请求格式
+## Request Format
 
-所有的API请求都以GET或者POST形式发出。对于GET请求，所有的参数都在路径参数里；对于POST请求，所有参数则以JSON格式发送在请求主体（body）里，头部信息（header）中
-必须传timestamp、apiKey、sign
+All API requests shoud be submitted using GET or POST formats.  For GET requests, all parameters are placed within the URL; For POST requests, all parameters are included within the body and header of the request using JSON formats
+Must include: timestamp、apiKey、sign
 
-## 返回内容格式
+## Return Format
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name   | Param Decription           |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |  返回000000为调用成功，其他code均为错误代码  |
-|data| 响应数据  |Object  |    |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |  return 000000 success, all other codes are unsuccessful  |
+|data| return data  |object  |    |
+|description| return description  |string  |    |
 
 
 # common
 
-## 获取基础币种
+## Obtain Basic Currency Type
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/common/currencys`
+**Interface URL**:`/openapi/v1/common/currencys`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -95,12 +95,12 @@ API Key 包括以下两部分
 
 
 
-**请求参数**：
-暂无
+**Request Param**：
+N/A at this time
 
 
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -110,30 +110,30 @@ API Key 包括以下两部分
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             | Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 币种列表  |array  |    |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| currency type list  |array  |    |
+|description| return description  |string  |    |
 
 
 
 
 
 
-## 获取某交易对详情
+## Obtain Trading Pair Details
 
 
-**接口描述**:
+**Interace Description**:
 
 
-**接口地址**:`/openapi/v1/common/symbolInfo`
+**Interface URL**:`/openapi/v1/common/symbolInfo`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -143,13 +143,13 @@ API Key 包括以下两部分
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|symbol| 交易对  | query | true |string  |    |
+|symbol| trading pair  | query | true |string  |    |
 
-**响应示例**:
+**Return Example**:
 
 ```json
 {
@@ -180,59 +180,59 @@ API Key 包括以下两部分
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |ExchangeCoin  | ExchangeCoin   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |ExchangeCoin  | ExchangeCoin   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
 **ExchangeCoin**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|baseCoinScale | 基币小数精度   |integer(int32)  |    |
-|baseSymbol | 结算币种符号   |string  |    |
-|buyPriceLimit | 买入价格幅度限制   |number  |    |
-|coinScale | 交易币小数精度   |integer(int32)  |    |
-|coinSymbol | 交易币种符号   |string  |    |
-|enable | 状态，1：启用，2：禁止   |integer(int32)  |    |
-|enableMarketBuy | 是否启用市价买,可用值:0,1   |string  |    |
-|enableMarketSell | 是否启用市价卖,可用值:0,1   |string  |    |
-|fee | 交易手续费   |number  |    |
-|flag | 标签位，用于推荐，排序等,默认为0，1表示推荐   |integer(int32)  |    |
-|maxTradingOrder | 最大允许同时交易的订单数，0表示不限制   |integer(int32)  |    |
-|maxTradingTime | 最大交易时间   |integer(int32)  |    |
-|maxVolume | 最大下单量，0表示不限制   |number  |    |
-|minSellPrice | 卖单最低价格   |number  |    |
-|minTurnover | 最小成交额   |number  |    |
-|minVolume | 最小下单量，0表示不限制   |number  |    |
-|sellPriceLimit | 卖出价格幅度限制   |number  |    |
-|sort | 排序   |integer(int32)  |    |
-|symbol | 交易对   |string  |    |
-|zone | 交易区域   |integer(int32)  |    |
+|baseCoinScale | base coin decimal places   |integer(int32)  |    |
+|baseSymbol | base coin symbol   |string  |    |
+|buyPriceLimit | buy price limit   |number  |    |
+|coinScale | traded coin decimal places   |integer(int32)  |    |
+|coinSymbol | traded coin symbol   |string  |    |
+|enable | status，1：enable，2：disable   |integer(int32)  |    |
+|enableMarketBuy | enable market buy,value:0,1   |string  |    |
+|enableMarketSell | enable market sell,value:0,1   |string  |    |
+|fee | transaction fee   |number  |    |
+|flag | tag，for referrals, sorting etc, default 0，1 as referral   |integer(int32)  |    |
+|maxTradingOrder | maximum concurrent trade orders，0 as no limit   |integer(int32)  |    |
+|maxTradingTime | maximum trading time   |integer(int32)  |    |
+|maxVolume | maximum order volume，0 as no limit   |number  |    |
+|minSellPrice | minimum sell price   |number  |    |
+|minTurnover | minimum turnover   |number  |    |
+|minVolume | minimum order volume，0 as no limit   |number  |    |
+|sellPriceLimit | sell price limit   |number  |    |
+|sort | sort order   |integer(int32)  |    |
+|symbol | trading pair   |string  |    |
+|zone | trading zone   |integer(int32)  |    |
 
 
 
-## 获取支持的交易对
+## Request Supported Trading Pair
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/common/symbols`
+**Interface URL**:`/openapi/v1/common/symbols`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -242,12 +242,12 @@ API Key 包括以下两部分
 
 
 
-**请求参数**：
-暂无
+**Request Param**：
+N/A at this time
 
 
 
-**响应示例**:
+**Request Example**:
 
 ```json
 {
@@ -280,60 +280,60 @@ API Key 包括以下两部分
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |array  | ExchangeCoin   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |array  | ExchangeCoin   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
 **ExchangeCoin**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type|  schema |
 | ------------ | ------------------|--------|----------- |
-|baseCoinScale | 基币小数精度   |integer(int32)  |    |
-|baseSymbol | 结算币种符号   |string  |    |
-|buyPriceLimit | 买入价格幅度限制   |number  |    |
-|coinScale | 交易币小数精度   |integer(int32)  |    |
-|coinSymbol | 交易币种符号   |string  |    |
-|enable | 状态，1：启用，2：禁止   |integer(int32)  |    |
-|enableMarketBuy | 是否启用市价买,可用值:0,1   |string  |    |
-|enableMarketSell | 是否启用市价卖,可用值:0,1   |string  |    |
-|fee | 交易手续费   |number  |    |
-|flag | 标签位，用于推荐，排序等,默认为0，1表示推荐   |integer(int32)  |    |
-|maxTradingOrder | 最大允许同时交易的订单数，0表示不限制   |integer(int32)  |    |
-|maxTradingTime | 最大交易时间   |integer(int32)  |    |
-|maxVolume | 最大下单量，0表示不限制   |number  |    |
-|minSellPrice | 卖单最低价格   |number  |    |
-|minTurnover | 最小成交额   |number  |    |
-|minVolume | 最小下单量，0表示不限制   |number  |    |
-|sellPriceLimit | 卖出价格幅度限制   |number  |    |
-|sort | 排序   |integer(int32)  |    |
-|symbol | 交易对   |string  |    |
-|zone | 交易区域   |integer(int32)  |    |
+|baseCoinScale | base coin decimal places   |integer(int32)  |    |
+|baseSymbol | base coin symbol   |string  |    |
+|buyPriceLimit | buy price limit   |number  |    |
+|coinScale | traded coin decimal places   |integer(int32)  |    |
+|coinSymbol | traded coin symbol   |string  |    |
+|enable | status，1：enable，2：disable   |integer(int32)  |    |
+|enableMarketBuy | enable market buy,value:0,1   |string  |    |
+|enableMarketSell | enable market sell,value:0,1   |string  |    |
+|fee | transaction fee   |number  |    |
+|flag | tag，for referrals, sorting etc, default 0，1 as referral   |integer(int32)  |    |
+|maxTradingOrder | maximum concurrent trade orders，0 as no limit   |integer(int32)  |    |
+|maxTradingTime | maximum trading time   |integer(int32)  |    |
+|maxVolume | maximum order volume，0 as no limit   |number  |    |
+|minSellPrice | minimum sell price   |number  |    |
+|minTurnover | minimum turnoer   |number  |    |
+|minVolume | minimum order volume，0 as no limit   |number  |    |
+|sellPriceLimit | sell price limit   |number  |    |
+|sort | sort order   |integer(int32)  |    |
+|symbol | trading pair   |string  |    |
+|zone | trading zone   |integer(int32)  |    |
 
 
 # market
 
-## 查询盘口(深度)数据
+## Request Order Book(Liquidity)Data
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/market/exchangePlate`
+**Interface URL**:`/openapi/v1/market/exchangePlate`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -343,13 +343,13 @@ API Key 包括以下两部分
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|symbol| 交易对  | query | true |string  |    |
+|symbol| trading pair  | query | true |string  |    |
 
-**响应示例**:
+**Request Example**:
 
 ```json
 {
@@ -367,40 +367,40 @@ API Key 包括以下两部分
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Return Name         | Return Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据  |array  | TradePlateItem   |
-|description| 响应描述  |string  |    |
+|code| return code  |string  |    |
+|data| return data  |array  | TradePlateItem   |
+|description| return description  |string  |    |
 
 
 
-**schema属性说明**
+**schema property**
 
 
 
 
 **TradePlateItem**
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | ------------------|--------|----------- |
-|amount | 数量   |number  |    |
+|amount | amount   |number  |    |
 |changed |    |boolean  |    |
-|price | 价格   |number  |    |
+|price | price   |number  |    |
 
-## 获取币种历史K线
-
-
-**接口描述**:
+## Request Coin History K Line
 
 
-**接口地址**:`/openapi/v1/market/history`
+**Interface Description**:
 
 
-**请求方式**：`GET`
+**Interface URL**:`/openapi/v1/market/history`
+
+
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -410,16 +410,16 @@ API Key 包括以下两部分
 
 
 
-**请求参数**：
+**Request Param**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param NAme         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|from| 开始时间戳  | query | true |integer  |    |
-|resolution| K线周期(1,15,30,60,240,D,W,M)  | query | true |string  |    |
-|symbol| 交易对  | query | true |string  |    |
-|to| 结束时间戳  | query | true |integer  |    |
+|from| from timestamp  | query | true |integer  |    |
+|resolution| K line period(1,15,30,60,240,D,W,M)  | query | true |string  |    |
+|symbol| trading pair  | query | true |string  |    |
+|to| to timestampe  | query | true |integer  |    |
 
-**响应示例**:
+**Request Example**:
 
 ```json
 {
@@ -429,27 +429,27 @@ API Key 包括以下两部分
 }
 ```
 
-**响应参数**:
+**Return Param**:
 
 
-| 参数名称         | 参数说明                             |    类型 |  schema |
+| Param Name         | Param Desc                             |    Type |  schema |
 | ------------ | -------------------|-------|----------- |
-|code| 响应代码  |string  |    |
-|data| 响应数据（按顺序为：时间戳、开盘价、最高价、最低价、收盘价、交易额）  |array  |    |
-|description| 响应描述  |string  |    |
+|code| retun code  |string  |    |
+|data| return data（sort order：timestampe, open price, high price, low price, close price, volume）  |array  |    |
+|description| return desc  |string  |    |
 
 
 
-## 查询最近成交记录
+## Request Recent Trade History
 
 
-**接口描述**:
+**Interface Description**:
 
 
-**接口地址**:`/openapi/v1/market/latestTrade`
+**Interface URL**:`/openapi/v1/market/latestTrade`
 
 
-**请求方式**：`GET`
+**Request Method**：`GET`
 
 
 **consumes**:``
@@ -459,9 +459,9 @@ API Key 包括以下两部分
 
 
 
-**请求参数**：
+**Request Method**：
 
-| 参数名称         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
+| Param Name         | 参数说明     |     in |  是否必须      |  数据类型  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
 |size| 大小  | query | true |ref  |    |
 |symbol| 交易对  | query | true |string  |    |
