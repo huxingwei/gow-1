@@ -463,7 +463,7 @@ N/A at this time
 
 | Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|size| 大小  | query | true |ref  |    |
+|size| size  | query | true |ref  |    |
 |symbol| trading pair  | query | true |string  |    |
 
 **Return Example**:
@@ -965,7 +965,7 @@ N/A at this time
 
 | Param Name         | Param Desc     |     in |  Mandatory      |  Data Type  |  schema  |
 | ------------ | -------------------------------- |-----------|--------|----|--- |
-|orderId| 订单ID  | query | true |string  |    |
+|orderId| ID  | query | true |string  |    |
 
 **Return Example**:
 
@@ -1477,7 +1477,7 @@ N/A at this time
 |isFirstPage |    |boolean  |    |
 |isLastPage |    |boolean  |    |
 |lastPage |    |integer(int32)  |    |
-|list |    |array  | 提币记录信息   |
+|list |    |array  | Withdraw Record   |
 |navigateFirstPage |    |integer(int32)  |    |
 |navigateLastPage |    |integer(int32)  |    |
 |navigatePages |    |integer(int32)  |    |
@@ -1834,7 +1834,7 @@ N/A at this time
 | legalCurrenyId         |     currency ID      |  string   |      |
 | legalCurrenyName         |     currency name      |  string   |      |
 | noteCode         |     remittance referral code      |  string   |      |
-| originalCurrencyAmount         |     原稳定币amount      |  number   |      |
+| originalCurrencyAmount         |     amount      |  number   |      |
 | payAt         |     payment timestamp      |  integer(int64)   |      |
 | payBirthDate         |     sender birthday(yyyy-MM-dd)      |  string   |      |
 | payCountry         |     sender nationality      |  string   |      |
@@ -1866,7 +1866,7 @@ N/A at this time
 | bankCity         |     beneficiary bank city      |  string   |      |
 | bankCountry         |     beneficiary bank country      |  string   |      |
 | bankName         |     beneficiary bank name      |  string   |      |
-| bankProvince         |     beneficiary bank province收款银行省份      |  string   |      |
+| bankProvince         |     beneficiary bank province      |  string   |      |
 | bankSwiftCode         |     beneficiary bank SWIFT code      |  string   |      |
 | city         |     beneficiary city      |  string   |      |
 | country         |     beneficiary country      |  string   |      |
