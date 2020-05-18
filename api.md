@@ -21,7 +21,7 @@ Request headers must include below:
 * content-type：application/json
 * timestamp：request timestamp, by milliseconds
 * apiKey：API KEY
-* sign：signature
+* sign：signature 
 
 
 ## Signature Verificiation
